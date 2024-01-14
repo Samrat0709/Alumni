@@ -1,6 +1,9 @@
 {
     "version": 2,
-    "builds": [{ "src": "**/*.php", "use": "@vercel/php" }],
-    "routes": [{ "handle": "@vercel/php" }]
+    "routes": [
+      { "src": "/(.+\\.php)", "dest": "/$1" },
+      { "handle": "filesystem" },
+      { "src": "/(.*)", "status": 404, "dest": "/404.html" }
+    ]
   }
   
